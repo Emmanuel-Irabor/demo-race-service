@@ -1,4 +1,4 @@
-package com.clickatell.race.service;
+package com.clickatell.race;
 
 
 import org.springframework.boot.SpringApplication;

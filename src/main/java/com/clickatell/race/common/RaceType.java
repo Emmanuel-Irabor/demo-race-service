@@ -1,4 +1,4 @@
-package com.clickatell.race.service.common;
+package com.clickatell.race.common;
 
 /**
  * @author Emmanuel-Irabor

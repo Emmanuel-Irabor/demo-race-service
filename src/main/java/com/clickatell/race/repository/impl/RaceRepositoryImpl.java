@@ -1,8 +1,10 @@
-package com.clickatell.race.service.repository.impl;
+package com.clickatell.race.repository.impl;
 
-import com.clickatell.race.service.entity.Race;
-import com.clickatell.race.service.entity.RaceResult;
-import com.clickatell.race.service.repository.CustomRaceRepository;
+import com.clickatell.race.common.Constants;
+import com.clickatell.race.entity.Race;
+import com.clickatell.race.entity.RaceResult;
+import com.clickatell.race.entity.Rider;
+import com.clickatell.race.repository.CustomRaceRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -20,11 +22,11 @@ public class RaceRepositoryImpl implements CustomRaceRepository {
     private EntityManager entityManager;
 
     @Override
-    public List<RaceResult> findTop3ByRaceOrderByFinishTimeAsc(Race race) {
+    public List<RaceResult> findFastestByRaceOrderByFinishTimeAsc(Race race) {
         return entityManager.createQuery(
                         "SELECT rr FROM RaceResult rr WHERE rr.race = :race ORDER BY rr.finishTime ASC", RaceResult.class)
                 .setParameter("race", race)
-                .setMaxResults(3)
+                .setMaxResults(Constants.FASTEST_RIDERS_COUNT)
                 .getResultList();
     }
 
@@ -37,10 +39,12 @@ public class RaceRepositoryImpl implements CustomRaceRepository {
     }
 
     @Override
-    public List<RaceResult> findByRace(Race race) {
+    public List<Rider> findRidersNotInRace(Race race) {
         return entityManager.createQuery(
-                        "SELECT rr FROM RaceResult rr WHERE rr.race = :race", RaceResult.class)
+                        "SELECT r FROM Rider r WHERE r NOT IN " +
+                                "(SELECT rr.rider FROM RaceResult rr WHERE rr.race = :race)", Rider.class)
                 .setParameter("race", race)
                 .getResultList();
     }
+
 }

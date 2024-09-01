@@ -1,6 +1,6 @@
-package com.clickatell.race.service.entity;
+package com.clickatell.race.entity;
 
-import com.clickatell.race.service.common.RaceType;
+import com.clickatell.race.common.RaceType;
 import lombok.Data;
 
 import javax.persistence.*;

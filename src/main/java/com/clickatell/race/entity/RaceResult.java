@@ -1,4 +1,4 @@
-package com.clickatell.race.service.entity;
+package com.clickatell.race.entity;
 
 import lombok.Data;
 
