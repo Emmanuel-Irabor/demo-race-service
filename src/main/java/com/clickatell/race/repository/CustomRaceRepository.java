@@ -1,7 +1,5 @@
 package com.clickatell.race.repository;
 
-import com.clickatell.race.entity.Race;
-import com.clickatell.race.entity.RaceResult;
 import com.clickatell.race.entity.Rider;
 import org.springframework.stereotype.Repository;
 
@@ -14,9 +12,9 @@ import java.util.List;
 @Repository
 public interface CustomRaceRepository {
 
-    List<RaceResult> findFastestByRaceOrderByFinishTimeAsc(Race race);
+    List<Rider> findFastestRidersByRaceId(Long raceId);
 
-    List<RaceResult> findByRaceAndFinishedFalse(Race race);
+    List<Rider> findRidersWhoDidNotFinishByRaceId(Long raceId);
 
-    List<Rider> findRidersNotInRace(Race race);
+    List<Rider> findRidersNotInRaceByRaceId(Long raceId);
 }

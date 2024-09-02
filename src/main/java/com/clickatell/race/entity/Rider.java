@@ -15,7 +15,7 @@ public class Rider {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
+    @Column(name = "rider_id", updatable = false)
     private Long id;
 
     private String name;

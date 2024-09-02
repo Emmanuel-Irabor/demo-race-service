@@ -1,4 +1,4 @@
-package com.clickatell.race.service.param;
+package com.clickatell.race.common;
 
 import lombok.Data;
 
@@ -7,5 +7,7 @@ import lombok.Data;
  * @since 02/09/2024
  */
 @Data
-public class WeatherParam {
+public class RaceRider {
+
+    private Long id;
 }

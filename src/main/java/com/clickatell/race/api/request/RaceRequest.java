@@ -1,6 +1,7 @@
 package com.clickatell.race.api.request;
 
 import com.clickatell.race.common.RaceLocationInfo;
+import com.clickatell.race.common.RaceRider;
 import com.clickatell.race.common.RaceType;
 import lombok.Data;
 
@@ -22,12 +23,5 @@ public class RaceRequest {
 
     private LocalDateTime startTime;
 
-    private List<Riders> riders;
-
-
-    @Data
-    public static class Riders {
-
-        private String name;
-    }
+    private List<RaceRider> riders;
 }

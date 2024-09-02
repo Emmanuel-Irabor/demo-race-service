@@ -6,6 +6,8 @@ import lombok.Data;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Emmanuel-Irabor
@@ -18,7 +20,7 @@ public class Race {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
+    @Column(name = "race_id", updatable = false)
     private Long id;
 
     private String name;
@@ -34,4 +36,12 @@ public class Race {
 
     @Column(name = "start_time")
     private LocalDateTime startTime;
+
+    @ManyToMany
+    @JoinTable(
+            name = "rider",
+            joinColumns = @JoinColumn(name = "race_id"),
+            inverseJoinColumns = @JoinColumn(name = "rider_id")
+    )
+    private List<Rider> riders;
 }

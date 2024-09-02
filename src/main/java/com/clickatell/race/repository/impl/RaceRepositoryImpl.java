@@ -1,8 +1,6 @@
 package com.clickatell.race.repository.impl;
 
 import com.clickatell.race.common.Constants;
-import com.clickatell.race.entity.Race;
-import com.clickatell.race.entity.RaceResult;
 import com.clickatell.race.entity.Rider;
 import com.clickatell.race.repository.CustomRaceRepository;
 import org.springframework.stereotype.Repository;
@@ -22,28 +20,28 @@ public class RaceRepositoryImpl implements CustomRaceRepository {
     private EntityManager entityManager;
 
     @Override
-    public List<RaceResult> findFastestByRaceOrderByFinishTimeAsc(Race race) {
+    public List<Rider> findFastestRidersByRaceId(Long raceId) {
         return entityManager.createQuery(
-                        "SELECT rr FROM RaceResult rr WHERE rr.race = :race ORDER BY rr.finishTime ASC", RaceResult.class)
-                .setParameter("race", race)
+                        "SELECT rr.rider FROM RaceResult rr WHERE rr.race.id = :raceId ORDER BY rr.finishTime ASC", Rider.class)
+                .setParameter("raceId", raceId)
                 .setMaxResults(Constants.FASTEST_RIDERS_COUNT)
                 .getResultList();
     }
 
     @Override
-    public List<RaceResult> findByRaceAndFinishedFalse(Race race) {
+    public List<Rider> findRidersWhoDidNotFinishByRaceId(Long raceId) {
         return entityManager.createQuery(
-                        "SELECT rr FROM RaceResult rr WHERE rr.race = :race AND rr.finished = false", RaceResult.class)
-                .setParameter("race", race)
+                        "SELECT rr.rider FROM RaceResult rr WHERE rr.race.id = :raceId AND rr.finished = false", Rider.class)
+                .setParameter("raceId", raceId)
                 .getResultList();
     }
 
     @Override
-    public List<Rider> findRidersNotInRace(Race race) {
+    public List<Rider> findRidersNotInRaceByRaceId(Long raceId) {
         return entityManager.createQuery(
                         "SELECT r FROM Rider r WHERE r NOT IN " +
-                                "(SELECT rr.rider FROM RaceResult rr WHERE rr.race = :race)", Rider.class)
-                .setParameter("race", race)
+                                "(SELECT rr.rider FROM RaceResult rr WHERE rr.race.id = :raceId)", Rider.class)
+                .setParameter("raceId", raceId)
                 .getResultList();
     }
 
