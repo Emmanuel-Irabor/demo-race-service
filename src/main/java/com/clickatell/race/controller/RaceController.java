@@ -5,10 +5,7 @@ import com.clickatell.race.api.response.RaceResponse;
 import com.clickatell.race.service.RaceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Emmanuel-Irabor
@@ -29,6 +26,13 @@ public class RaceController {
         //TODO: implement createRace
         return new ResponseEntity<>(new RaceResponse(), HttpStatus.CREATED);
     }
+
+    @GetMapping("/get-weather-by-race-id/{raceId}")
+    public ResponseEntity<RaceResponse> createRace(@PathVariable Long raceId) {
+        //TODO: implement createRace
+        return new ResponseEntity<>(new RaceResponse(), HttpStatus.CREATED);
+    }
+
 
 
 }

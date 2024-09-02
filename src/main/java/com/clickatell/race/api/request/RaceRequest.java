@@ -1,5 +1,6 @@
 package com.clickatell.race.api.request;
 
+import com.clickatell.race.common.RaceLocationInfo;
 import com.clickatell.race.common.RaceType;
 import lombok.Data;
 
@@ -15,7 +16,7 @@ public class RaceRequest {
 
     private String name;
 
-    private String location;
+    private RaceLocationInfo location;
 
     private RaceType type;
 

@@ -1,5 +1,6 @@
 package com.clickatell.race.api.response;
 
+import com.clickatell.race.common.RaceLocationInfo;
 import com.clickatell.race.common.RaceType;
 import com.clickatell.race.common.RiderInfo;
 import lombok.Data;
@@ -24,7 +25,7 @@ public class RaceResponse {
 
         private String name;
 
-        private String location;
+        private RaceLocationInfo location;
 
         private RaceType type;
 

@@ -1,8 +1,11 @@
 package com.clickatell.race.client;
 
+import com.clickatell.race.client.response.WeatherForecastResponse;
 import com.clickatell.race.client.config.WeatherApiConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.math.BigDecimal;
 
 /**
  * @author Emmanuel-Irabor
@@ -19,7 +22,9 @@ public class RaceClient {
         this.weatherApiConfig = weatherApiConfig;
     }
 
-    public String getWeatherForecast(String location) {
-        return restTemplate.getForObject(weatherApiConfig.getBaseUrl(), String.class, location, weatherApiConfig.getApiKey());
+    public WeatherForecastResponse getWeatherForecast(BigDecimal latitude, BigDecimal longitude) {
+        return restTemplate.getForObject(weatherApiConfig.getBaseUrl(), WeatherForecastResponse.class,
+                latitude, longitude, weatherApiConfig.getApiKey());
     }
+
 }

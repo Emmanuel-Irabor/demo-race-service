@@ -4,6 +4,7 @@ import com.clickatell.race.common.RaceType;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -17,12 +18,16 @@ public class Race {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false)
+    @Column(updatable = false)
     private Long id;
 
     private String name;
 
-    private String location;
+    private String city;
+
+    private BigDecimal latitude;
+
+    private BigDecimal longitude;
 
     @Enumerated(EnumType.STRING)
     private RaceType type;
