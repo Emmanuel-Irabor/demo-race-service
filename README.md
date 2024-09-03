@@ -25,3 +25,6 @@ This project is a simple application for tracking and reporting on races such as
    ```bash
    git clone https://github.com/Emmnauel-Irabor/clickatell-race-service.git
    cd clickatell-race-service
+
+## PostMan Documentation
+- https://documenter.getpostman.com/view/23777914/2sAXjNXVv4
