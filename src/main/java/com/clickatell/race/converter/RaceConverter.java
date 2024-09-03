@@ -39,8 +39,7 @@ public class RaceConverter {
             throw new InvalidParameterException("Riders cannot be null!");
         }
         RidersResponse ridersResponse = new RidersResponse();
-        List<RiderInfo> riderInfoList = riders.stream()
-                .map(rider -> {
+        List<RiderInfo> riderInfoList = riders.stream().map(rider -> {
                     RiderInfo info = new RiderInfo();
                     info.setId(rider.getId());
                     info.setName(rider.getName());
@@ -60,6 +59,14 @@ public class RaceConverter {
         raceInfo.setName(race.getName());
         raceInfo.setType(race.getType());
         raceInfo.setStartTime(race.getStartTime());
+
+        List<RiderInfo> riderInfoList = riders.stream().map(rider -> {
+                    RiderInfo info = new RiderInfo();
+                    info.setId(rider.getId());
+                    info.setName(rider.getName());
+                    return info;
+                }).collect(Collectors.toList());
+        raceInfo.setRiders(riderInfoList);
 
         RaceLocationInfo locationInfo = new RaceLocationInfo();
         locationInfo.setCity(race.getCity());
