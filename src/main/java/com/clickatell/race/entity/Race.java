@@ -39,7 +39,7 @@ public class Race {
 
     @ManyToMany
     @JoinTable(
-            name = "rider",
+            name = "race_rider", // Use a junction table name here
             joinColumns = @JoinColumn(name = "race_id"),
             inverseJoinColumns = @JoinColumn(name = "rider_id")
     )

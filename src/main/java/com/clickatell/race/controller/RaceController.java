@@ -11,8 +11,10 @@ import com.clickatell.race.client.response.WeatherForecastResponse;
 import com.clickatell.race.service.RaceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -30,13 +32,13 @@ public class RaceController {
     }
 
     @PostMapping("/create-rider")
-    public ResponseEntity<RiderResponse> createRider(@RequestBody RiderRequest request) {
+    public ResponseEntity<RiderResponse> createRider(@RequestBody @Valid RiderRequest request) {
         RiderResponse response = raceService.createRider(request);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/create-race")
-    public ResponseEntity<RaceResponse> createRace(@RequestBody RaceRequest request) {
+    public ResponseEntity<RaceResponse> createRace(@RequestBody @Valid RaceRequest request) {
         RaceResponse response = raceService.createRace(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

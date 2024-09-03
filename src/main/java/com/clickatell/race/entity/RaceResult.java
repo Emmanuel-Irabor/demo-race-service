@@ -20,9 +20,11 @@ public class RaceResult {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "rider_id", nullable = false)
     private Rider rider;
 
     @ManyToOne
+    @JoinColumn(name = "race_id", nullable = false)
     private Race race;
 
     @Column(name = "finish_time")
