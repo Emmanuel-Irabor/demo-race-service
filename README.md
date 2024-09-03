@@ -19,6 +19,14 @@ This project is a simple application for tracking and reporting on races such as
 - **JUnit** and **Mockito** for unit testing
 - **OpenWeatherMap API** for weather data
 
+## PostMan Documentation
+- https://documenter.getpostman.com/view/23777914/2sAXjNXVv4
+
+## Database Schema Design
+
+![image](https://github.com/user-attachments/assets/37fe76c0-f3da-4891-be47-88aa5e70b287)
+
+
 ## How to Run
 
 1. **Clone the Repository:**
@@ -26,5 +34,4 @@ This project is a simple application for tracking and reporting on races such as
    git clone https://github.com/Emmnauel-Irabor/clickatell-race-service.git
    cd clickatell-race-service
 
-## PostMan Documentation
-- https://documenter.getpostman.com/view/23777914/2sAXjNXVv4
+
