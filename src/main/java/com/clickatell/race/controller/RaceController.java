@@ -11,7 +11,6 @@ import com.clickatell.race.client.response.WeatherForecastResponse;
 import com.clickatell.race.service.RaceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -68,7 +67,7 @@ public class RaceController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/get-weather-by-race-id/{raceId}")
+    @GetMapping("/{raceId}/get-weather-by-race-id")
     public ResponseEntity<WeatherForecastResponse> createRace(@PathVariable Long raceId) {
         WeatherForecastResponse response = raceService.getWeatherForecastByRaceId(raceId);
         return ResponseEntity.ok(response);
