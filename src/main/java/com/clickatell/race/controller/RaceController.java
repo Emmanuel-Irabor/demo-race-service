@@ -68,7 +68,7 @@ public class RaceController {
     }
 
     @GetMapping("/{raceId}/get-weather-by-race-id")
-    public ResponseEntity<WeatherForecastResponse> createRace(@PathVariable Long raceId) {
+    public ResponseEntity<WeatherForecastResponse> getWeatherForecast(@PathVariable Long raceId) {
         WeatherForecastResponse response = raceService.getWeatherForecastByRaceId(raceId);
         return ResponseEntity.ok(response);
     }
