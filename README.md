@@ -1,4 +1,4 @@
-# Clickatell Race Application
+# Race Application
 
 ## Overview
 This project is a simple application for tracking and reporting on races such as mountain bike races. It stores information about riders, races, and race results, and provides various reports such as the fastest riders, riders who didn't finish, and those who didn't participate. Additionally, the application integrates with a public weather API to provide weather information for the race location.
@@ -31,7 +31,7 @@ This project is a simple application for tracking and reporting on races such as
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/Emmnauel-Irabor/clickatell-race-service.git
-   cd clickatell-race-service
+   git clone https://github.com/Emmnauel-Irabor/race-service.git
+   cd race-service
 
 
