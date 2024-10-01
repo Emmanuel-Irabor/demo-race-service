@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(
         scanBasePackages = {
-                "com.clickatell.race"
+                "com.demo.race"
         }
 )
 public class RaceApplication {

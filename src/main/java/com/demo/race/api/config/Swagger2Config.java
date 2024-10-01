@@ -26,7 +26,7 @@ public class Swagger2Config {
                 .groupName("api")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.clickatell.race"))
+                .apis(RequestHandlerSelectors.basePackage("com.demo.race"))
                 .paths(PathSelectors.any())
                 .build();
     }
